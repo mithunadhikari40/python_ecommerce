@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block head_title %} Top Navbar Example for Bootstrap {% endblock %}
+
+{% block head_style %}
+<style>
+    .jumbotron {
+<!--    color  : #0000FF-->
+    }
+
+
+
+
+</style>
+{% endblock %}
+
+<div class="page-header">
+    <h1>{{ product.title }} </h1>
+</div>
+
+{% block content %}
+
+<br/>
+
+<br/>
+<br/>
+<div class="row">
+    <div class="col-sm-4">
+
+        {% for img in images %}
+        {% if img.active %}
+        <div class="col-xs-12 col-md-12">
+            <!--            <h1>Featured</h1>-->
+            <img class="img-responsive" src=" {{ img.image.url }} "/>
+            <hr/>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% for img in images %}
+
+        {% if not img.active %}
+        <div class=" col-xs-6">
+            <a href="#" class="thumbnail">
+                <img src=" {{ img.image.url }} " class="img-responsive">
+            </a>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="col-sm-8">
+        <h1>{{ product.title }} <a href="#" class="pull-right" >Add to Cart</a> </h1>
+<!--        <h1>{{ product.title }}<button class="btn my-2 my-sm-0 btn-danger pull-right" type="submit">Add to cart</button></h1>-->
+        <hr/>
+        Price : ${{ product.price }}
+        <br />
+        Shipping with $25+ purchase
+        <hr/>
+        {{ product.description|linebreaks }}
+    </div>
+</div>
+{% endblock %}
+

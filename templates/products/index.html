@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %} Top Navbar Example for Bootstrap {% endblock %}
+
+{% block head_style %}
+<style>
+    .jumbotron {
+<!--    color  : #0000FF-->
+    }
+
+
+
+
+
+
+</style>
+{% endblock %}
+{% block jumbotron %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Welcome {{ username }}</h1>
+        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It
+            includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+        <p>To see the difference between static and fixed top navbars, just scroll.</p>
+        <p>
+            <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+        </p>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block content %}
+<!-- Main component for a primary marketing message or call to action -->
+
+<div class="row">
+    {% for product in products %}
+
+    <div class="col-sm-3">
+
+        <div class="card" style="width: 18rem;">
+            {% if product.productimage_set.all %}
+
+
+            {% for item in product.productimage_set.all %}
+
+
+            {% if item.active %}
+            <img class="img-responsive" src="{{ item.image.url }}"/>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <img class="img-responsive" src='{% static "images/grey_placeholder.png" %}'/>
+            {% endif %}
+            <div class="card-body">
+                <h3 class="card-title"><a href=' {%  url "single_product"   product.slug   %} '> {{ product.title}} </a>
+                </h3>
+                <p class="card-text">{{ product.description|truncatewords:15 }}</p>
+                <a href='{%  url "single_product"   product.slug   %}' class="btn btn-primary">View</a>
+                <a href='{%  url "single_product"   product.slug   %}' class="btn btn-default"
+                   role="button">Save</a>
+            </div>
+
+
+        </div>
+
+
+        <!--        {% for item in product.productimage_set.all %}-->
+
+
+        <!--        {% if item.active %}-->
+        <!--        <img class="img-responsive" src="{{ item.image.url }}"/>-->
+        <!--        {% endif %}-->
+        <!--        {% endfor %}-->
+
+        <!--        <a href=' {{ product.get_absolute_url }} '> {{ product.title}} </a>-->
+        <!--        <a href=' {%  url "single_product"   product.slug   %} '> {{ product.title}} </a>-->
+        <!--        {{ product.slug}}-->
+
+
+    </div>
+
+    <!--    {% cycle "" "" "" "-->
+    <!--</div> <br/><br/>-->
+    <!--<div class='row'> " %}-->
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}
+

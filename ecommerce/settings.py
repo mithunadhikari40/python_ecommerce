@@ -24,7 +24,7 @@ SECRET_KEY = '-p*wv%o7=w*e0)iho-@a@p0@4=91gsg5xw^4wn)s72q^j7**_1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
 # Application definition
 
@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products',
-    'alembic'
+    'alembic',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'ecommerce.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,7 +115,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+# MEDIA_ROOT = "D://practise/python/ecommerce-app/static/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media")
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static", "static_root")
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static", "static_files"),)
+
 # All the templates are separated into a separate directory
 # TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 #
 # TEMPLATES = BASE_DIR / 'templates'
+
+#run this command also after creating all those folders and models and all
+#>>python manage.py collectstatic
+
