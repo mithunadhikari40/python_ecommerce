@@ -24,7 +24,7 @@ SECRET_KEY = '-p*wv%o7=w*e0)iho-@a@p0@4=91gsg5xw^4wn)s72q^j7**_1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products',
+    'carts',
     'alembic',
 ]
 
@@ -127,6 +128,5 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static", "static_files"),)
 #
 # TEMPLATES = BASE_DIR / 'templates'
 
-#run this command also after creating all those folders and models and all
-#>>python manage.py collectstatic
-
+# run this command also after creating all those folders and models and all
+# >>python manage.py collectstatic

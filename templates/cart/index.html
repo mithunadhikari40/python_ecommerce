@@ -1,0 +1,52 @@
+{%  extends 'base.html' %}
+{% block content %}
+
+<br/>
+<br/>
+<br/>
+<div class="col-sm-8 col-sm-offset-2">
+    <table class="table">
+        <thead>
+        <th>Item</th>
+        <th>Price</th>
+        </thead>
+
+
+        {% for cart in carts %}
+
+
+        {% for item in cart.products.all %}
+        <tr>
+            <td>
+                {{ item.title }}
+            </td>
+
+            <td>
+                {{ item.price }}
+            </td>
+        </tr>
+
+
+        {% endfor %}
+        {% endfor %}
+
+        <tfoot>
+        <tr>
+            <td></td>
+            <td>Total: {{ total }}</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+
+        </tfoot>
+
+
+    </table>
+
+</div>
+
+
+{% endblock %}
