@@ -23,6 +23,8 @@
 
             <td>
                 {{ item.price }}
+            </td><td>
+            <a href=" {% url 'update_cart' item.slug %}">Remove</a>
             </td>
         </tr>
 

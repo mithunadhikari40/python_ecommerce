@@ -23,3 +23,4 @@ if __name__ == '__main__':
 
 #https://www.youtube.com/watch?v=zo3p6cZaZtM&list=PLPp4GCMxKSjCM9AvhmF9OHyyaJsN8rsZK&index=12
 #https://www.youtube.com/watch?v=o4SbgPEff7o&list=PLPp4GCMxKSjCM9AvhmF9OHyyaJsN8rsZK&index=21
+#https://www.youtube.com/watch?v=h47Wx5118ng&list=PLPp4GCMxKSjCM9AvhmF9OHyyaJsN8rsZK&index=24
