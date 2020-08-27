@@ -4,6 +4,11 @@
 <br/>
 <br/>
 <br/>
+{% if empty %}
+ <h1 style="text-align:center;"> {{ message }} </h1>
+{% else %}
+
+
 <div class="col-sm-8 col-sm-offset-2">
     <table class="table">
         <thead>
@@ -49,6 +54,7 @@
     </table>
 
 </div>
+{% endif %}
 
 
 {% endblock %}

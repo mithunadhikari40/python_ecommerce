@@ -9,12 +9,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="{%  url 'homepage' %}">Mithun eCommerce</a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="{%  url 'homepage' %} ">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
                 <li class="dropdown">
@@ -35,18 +35,27 @@
             </ul>
 
 
-<!--                        <ul class="nav navbar-nav navbar-right">-->
-<!--                            <li><a href="../navbar/">Default</a></li>-->
-<!--                            <li><a href="./">Static top </a></li>-->
-<!--                            <li class="active"><a href="../navbar-fixed-top/">Fixed top <span class="sr-only">(current)</span> </a>-->
-<!--                            </li>-->
+            <ul class="nav navbar-nav navbar-right ">
+                <li><a href="{%  url 'all_products' %}">Products</a></li>
+                <li><a href="{%  url 'cart_homepage' %}">Cart
+                    <span class="badge badge-light">
+                        {%  if not request.session.item_total %} 0
+                        {% else %}
+                        {{ request.session.item_total }}
+                        {% endif %}
+                    </span>
+                </a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{%  url 'cart_homepage' %}">Account </a></li>
+                {% endif %}
 
-<!--                        </ul>-->
+            </ul>
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right ">
 
                 <form class=" navbar-form form-inline  " action="search">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="name">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                           name="name">
                     <button class="btn my-2 my-sm-0 btn-primary" type="submit">Search</button>
                 </form>
             </ul>
